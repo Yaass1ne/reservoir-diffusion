@@ -1,0 +1,17 @@
+# Phase 4b IMPROVED -- more sensors + ES-MDA localization for better field recovery.
+assim:
+  ldm_ckpt: "outputs/diffusion/ldm2d/best_ldm.pt"
+  forward_ckpt: "outputs/diffusion/forward2d/best_forward.pt"
+  sensors: "configs/diffusion/sensors_dense.yaml"   # 16 sensors instead of 4
+  cache_dir: "outputs/diffusion/cache2d"
+  ensemble: 80           # a few more members for the larger update
+  iterations: 6          # a couple more assimilation steps
+  obs_noise_std: 0.05
+  localize: true         # keep each update local -> preserves structure
+  localize_len: 3.0      # taper length in latent cells
+  near_radius: 8
+  truth_split: "test"
+  truth_index: 0
+  seed: 0
+output:
+  dir: "outputs/diffusion/assim_improved"

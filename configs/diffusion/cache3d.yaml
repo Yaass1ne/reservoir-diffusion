@@ -1,0 +1,10 @@
+# Phase 6 (0) -- cache full Perm volumes (24x60x60), one per sample. 780 volumes.
+data:
+  data_path: "data/raw/780_c5.h5"
+  fields: ["Perm"]
+  log_fields: ["Perm"]
+  val_ratio: 0.1
+  test_ratio: 0.1
+  seed: 42
+output:
+  dir: "outputs/diffusion3d/cache3d"

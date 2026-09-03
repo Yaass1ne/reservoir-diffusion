@@ -1,0 +1,14 @@
+# Phase 0 smoke -- tiny cache to prove the pipeline on the laptop (CPU/4GB GPU).
+# A few samples, one mid Z-layer. NOT for real training.
+data:
+  data_path: "data/raw/780_c5.h5"
+  fields: ["Perm"]         # Perm-only (Walid 2026-09-02)
+  log_fields: ["Perm"]
+  z_slices: [12]           # single middle layer
+  val_ratio: 0.25
+  test_ratio: 0.0
+  seed: 42
+  max_samples: 16
+
+output:
+  dir: "outputs/diffusion/cache2d_smoke"

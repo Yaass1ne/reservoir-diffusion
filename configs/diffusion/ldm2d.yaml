@@ -1,0 +1,24 @@
+# Phase 2 -- latent diffusion prior (VPS / full).
+# Trains the DDPM on latents from the Phase 1 autoencoder.
+data:
+  cache_dir: "outputs/diffusion/cache2d"
+  ae_ckpt: "outputs/diffusion/ae2d/best_ae.pt"
+
+model:
+  latent_ch: 16            # must match the autoencoder's latent_ch
+  base: 64
+  temb_dim: 128
+  timesteps: 1000
+  beta_start: 0.0001
+  beta_end: 0.02
+
+training:
+  epochs: 400
+  batch_size: 64
+  learning_rate: 0.0002
+  weight_decay: 0.0
+  num_workers: 0
+  seed: 42
+
+output:
+  dir: "outputs/diffusion/ldm2d"

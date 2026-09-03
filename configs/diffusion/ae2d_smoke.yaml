@@ -1,0 +1,23 @@
+# Phase 1 smoke -- tiny autoencoder run on the laptop.
+data:
+  cache_dir: "outputs/diffusion/cache2d_smoke"
+  fields: ["Perm"]
+
+model:
+  in_ch: 1                 # Perm-only (Walid 2026-09-02)
+  base: 16
+  latent_ch: 16
+  down_levels: 2           # match the full config's 16x16 latent
+
+training:
+  epochs: 3
+  batch_size: 4
+  learning_rate: 0.001
+  weight_decay: 0.00001
+  grad_weight: 0.1
+  num_workers: 0
+  seed: 42
+  gate_r2: 0.0              # smoke: plumbing only, no real gate
+
+output:
+  dir: "outputs/diffusion/ae2d_smoke"

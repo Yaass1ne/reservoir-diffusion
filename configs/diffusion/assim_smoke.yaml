@@ -1,0 +1,14 @@
+# Phase 4b smoke.
+assim:
+  ldm_ckpt: "outputs/diffusion/ldm2d_smoke/best_ldm.pt"
+  forward_ckpt: "outputs/diffusion/forward2d_smoke/best_forward.pt"
+  sensors: "configs/diffusion/sensors.yaml"
+  cache_dir: "outputs/diffusion/cache2d_smoke"
+  ensemble: 12
+  iterations: 3
+  obs_noise_std: 0.05
+  truth_split: "val"
+  truth_index: 0
+  seed: 0
+output:
+  dir: "outputs/diffusion/assim_smoke"

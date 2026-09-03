@@ -1,0 +1,16 @@
+# Phase 4b -- ES-MDA assimilation (twin experiment).
+assim:
+  ldm_ckpt: "outputs/diffusion/ldm2d/best_ldm.pt"
+  forward_ckpt: "outputs/diffusion/forward2d/best_forward.pt"
+  sensors: "configs/diffusion/sensors.yaml"
+  cache_dir: "outputs/diffusion/cache2d"
+  ensemble: 60           # ensemble members
+  iterations: 4          # ES-MDA assimilation steps
+  obs_noise_std: 0.05    # measurement noise (normalized obs units)
+  localize: false        # baseline: no localization (the 4-sensor case)
+  near_radius: 8         # cells within this radius of a sensor = "near"
+  truth_split: "test"    # hold out a real field as the truth
+  truth_index: 0
+  seed: 0
+output:
+  dir: "outputs/diffusion/assim"

@@ -1,0 +1,22 @@
+# Phase 3 -- sensor layout for the measurement operator H.
+# CONFIRMED BY WALID 2026-09-02:
+#   * 4 (x,y) locations, varied, NOT necessarily at well locations
+#   * each location sampled at TWO depths: layer 6 and layer 18 (0-indexed)
+#     -> 4 x 2 = 8 measured points
+#   * record every 8 timesteps -> [0, 8, 16, 24, 32, 40, 48] = 7 times
+#   * observables: saturation AND pressure
+#   (8 points x 7 times = 56 point-times per observable)
+# Locations are (z, x, y) on the 24 x 60 x 60 grid.
+sensors:
+  observables: ["sat", "pressure"]
+  # 4 varied (x,y) points, each at z=6 and z=18
+  locations:
+    - [6,  15, 15]
+    - [18, 15, 15]
+    - [6,  45, 18]
+    - [18, 45, 18]
+    - [6,  25, 45]
+    - [18, 25, 45]
+    - [6,  48, 48]
+    - [18, 48, 48]
+  times: [0, 8, 16, 24, 32, 40, 48]

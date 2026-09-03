@@ -1,0 +1,20 @@
+# Phase 6 (2) -- 3D latent diffusion prior.
+data:
+  cache_dir: "outputs/diffusion3d/cache3d"
+  ae_ckpt: "outputs/diffusion3d/ae3d/best_ae.pt"
+model:
+  latent_ch: 8
+  base: 48
+  temb_dim: 128
+  timesteps: 1000
+  beta_start: 0.0001
+  beta_end: 0.02
+training:
+  epochs: 400
+  batch_size: 16
+  learning_rate: 0.0002
+  weight_decay: 0.0
+  num_workers: 0
+  seed: 42
+output:
+  dir: "outputs/diffusion3d/ldm3d"

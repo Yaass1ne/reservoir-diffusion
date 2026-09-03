@@ -1,0 +1,22 @@
+# Phase 4a -- forward surrogate: Perm slice -> sat/pressure at the sensor times.
+# times MUST match configs/diffusion/sensors.yaml.
+data:
+  data_path: "data/raw/780_c5.h5"
+  perm_normalizer: "outputs/diffusion/cache2d/normalizer.json"   # reuse Perm stats
+  obs_fields: ["sat", "pressure"]
+  times: [0, 8, 16, 24, 32, 40, 48]
+  z_slices: "all"
+  val_ratio: 0.1
+  test_ratio: 0.1
+  seed: 42
+model:
+  base: 32
+training:
+  epochs: 60
+  batch_size: 32
+  learning_rate: 0.001
+  weight_decay: 0.00001
+  num_workers: 0
+  seed: 42
+output:
+  dir: "outputs/diffusion/forward2d"

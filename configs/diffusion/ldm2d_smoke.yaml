@@ -1,0 +1,23 @@
+# Phase 2 smoke -- tiny diffusion run on the laptop.
+data:
+  cache_dir: "outputs/diffusion/cache2d_smoke"
+  ae_ckpt: "outputs/diffusion/ae2d_smoke/best_ae.pt"
+
+model:
+  latent_ch: 16
+  base: 32
+  temb_dim: 64
+  timesteps: 50
+  beta_start: 0.0001
+  beta_end: 0.02
+
+training:
+  epochs: 5
+  batch_size: 4
+  learning_rate: 0.0002
+  weight_decay: 0.0
+  num_workers: 0
+  seed: 42
+
+output:
+  dir: "outputs/diffusion/ldm2d_smoke"

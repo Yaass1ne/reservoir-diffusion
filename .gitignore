@@ -1,0 +1,14 @@
+# data + run artifacts (not versioned)
+data/
+outputs/
+*.h5
+*.pt
+*.npz
+# python
+__pycache__/
+*.pyc
+.venv/
+.ipynb_checkpoints/
+# os
+.DS_Store
+Thumbs.db

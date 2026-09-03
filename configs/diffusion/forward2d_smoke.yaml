@@ -1,0 +1,22 @@
+# Phase 4a smoke.
+data:
+  data_path: "data/raw/780_c5.h5"
+  perm_normalizer: "outputs/diffusion/cache2d_smoke/normalizer.json"
+  obs_fields: ["sat", "pressure"]
+  times: [0, 8, 16, 24, 32, 40, 48]
+  z_slices: [12]
+  val_ratio: 0.25
+  test_ratio: 0.0
+  seed: 42
+  max_samples: 16
+model:
+  base: 16
+training:
+  epochs: 3
+  batch_size: 4
+  learning_rate: 0.001
+  weight_decay: 0.00001
+  num_workers: 0
+  seed: 42
+output:
+  dir: "outputs/diffusion/forward2d_smoke"

@@ -1,0 +1,18 @@
+# Phase 6 (4b) -- 3D ES-MDA. Real 3D sensors (8 points, 2 depths) via sensors.yaml.
+assim:
+  ldm_ckpt: "outputs/diffusion3d/ldm3d/best_ldm.pt"
+  forward_ckpt: "outputs/diffusion3d/forward3d/best_forward.pt"
+  data_path: "data/raw/780_c5.h5"   # to read the truth case injection controls
+  sensors: "configs/diffusion/sensors3d_dense.yaml"
+  cache_dir: "outputs/diffusion3d/cache3d"
+  ensemble: 100
+  iterations: 8
+  obs_noise_std: 0.05
+  localize: true
+  localize_len: 2.0
+  near_radius: 6
+  truth_split: "test"
+  truth_index: 0
+  seed: 0
+output:
+  dir: "outputs/diffusion3d/assim3d"

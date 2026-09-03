@@ -1,0 +1,6 @@
+torch>=2.0
+numpy>=1.24
+h5py>=3.0
+pyyaml>=6.0
+matplotlib>=3.6
+reportlab>=4.0   # only for reports/build_diffusion_results_pdf.py

@@ -1,0 +1,27 @@
+# Phase 1 -- 2D autoencoder (VPS / full).
+# Latent = latent_ch x 8 x 8 = 16*64 = 1024 numbers per field-set.
+data:
+  cache_dir: "outputs/diffusion/cache2d"
+  fields: ["Perm"]
+
+model:
+  in_ch: 1                 # Perm-only (Walid 2026-09-02); set 2 to add Por back
+  base: 32
+  latent_ch: 16
+  down_levels: 2           # 16x16 latent (was 3 -> 8x8). Bigger latent, sharper
+                           # reconstruction: clears the R^2 gate the 8x8 missed.
+
+training:
+  epochs: 120
+  batch_size: 32
+  learning_rate: 0.001
+  weight_decay: 0.00001
+  grad_weight: 0.1          # edge term so wells stay sharp
+  num_workers: 0
+  seed: 42
+  gate_r2: 0.97             # recon R^2 gate. 2026-09-02: accepted Perm R^2=0.974
+                            # (16x16 latent) as passing -- strong AE, standard for
+                            # latent diffusion; not chasing the last fraction.
+
+output:
+  dir: "outputs/diffusion/ae2d"

@@ -1,0 +1,28 @@
+# Denser sensor layout for improved field recovery: a 4x4 grid of (x,y) points
+# across the field, each at two depths (layers 6 & 18). 16 unique (x,y) in 2D.
+# Same recording times as the base layout. Forward surrogate needs NO retrain
+# (it predicts the full field; H just samples more points).
+sensors:
+  observables: ["sat", "pressure"]
+  locations:
+    - [6, 12, 12]
+    - [6, 12, 26]
+    - [6, 12, 40]
+    - [6, 12, 52]
+    - [6, 26, 12]
+    - [6, 26, 26]
+    - [6, 26, 40]
+    - [6, 26, 52]
+    - [6, 40, 12]
+    - [6, 40, 26]
+    - [6, 40, 40]
+    - [6, 40, 52]
+    - [6, 52, 12]
+    - [6, 52, 26]
+    - [6, 52, 40]
+    - [6, 52, 52]
+    - [18, 12, 12]
+    - [18, 26, 26]
+    - [18, 40, 40]
+    - [18, 52, 52]
+  times: [0, 8, 16, 24, 32, 40, 48]

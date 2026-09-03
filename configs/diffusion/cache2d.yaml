@@ -1,0 +1,18 @@
+# Phase 0 -- build the 2D Perm/Por slice cache (VPS / full).
+# All 24 Z-layers of all 780 samples -> ~18,720 2D fields.
+# Reuses log10(Perm)+standardize; stats from the TRAIN split only.
+data:
+  data_path: "data/raw/780_c5.h5"
+  fields: ["Perm"]         # Walid 2026-09-02: focus on Perm (Por deferred).
+                           #   to bring Por back: fields:["Perm","Por"] + ae2d in_ch:2
+  log_fields: ["Perm"]
+  z_slices: "all"          # every horizontal layer becomes a 2D training field
+  val_ratio: 0.1
+  test_ratio: 0.1
+  seed: 42
+  # scenario-held-out option (matches the GRU-FNO honest split):
+  split_by_scenario: false
+  samples_per_scenario: 20
+
+output:
+  dir: "outputs/diffusion/cache2d"
